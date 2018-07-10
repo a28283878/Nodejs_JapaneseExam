@@ -1,0 +1,109 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title 勉強しましょう
+    meta(name='description', content='')
+    meta(name='author', content='')
+    //
+      Favicons
+      ==================================================
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
+    //- link(rel='apple-touch-icon', href='/images/apple-touch-icon.png')
+    //- link(rel='apple-touch-icon', sizes='72x72', href='/images/apple-touch-icon-72x72.png')
+    //- link(rel='apple-touch-icon', sizes='114x114', href='/images/apple-touch-icon-114x114.png')
+    // Bootstrap
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href='/fonts/font-awesome/css/font-awesome.css')
+    //
+      Stylesheet
+      ==================================================
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900', rel='stylesheet')
+    // HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js')
+      script(src='https://oss.maxcdn.com/respond/1.4.2/respond.min.js')
+  body#page-top(data-spy='scroll', data-target='.navbar-fixed-top')
+    //
+      Navigation
+      ==========================================
+    nav#menu.navbar.navbar-default.navbar-fixed-top
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.page-scroll(href='#page-top')
+            i.fa.fa-bookmark-o
+            |  Japanese Word Exam
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a.page-scroll(href='#about') About
+            li
+              a.page-scroll(href='#services') Services
+            li
+              a.page-scroll(href='#pricing') Pricing
+            li
+              a.page-scroll(href='#contact') Contact
+        // /.navbar-collapse
+      // /.container-fluid
+    // Header
+    header#header
+      .intro
+        .overlay
+          .container
+            .row
+              .intro-text
+                h1 Japanese Word Exam
+                p こんにちわ！ #{data.name} 來練習日文吧!
+                a.btn.btn-custom.btn-lg.page-scroll(href='#about') Get Started
+    // Services Section
+    #services.text-center
+      .container
+        .col-md-10.col-md-offset-1.section-title
+          h2 Exam Type
+          hr
+          p 可以選擇你想要的考試方式
+        .row
+          .col-xs-6.col-md-3
+            i.fa.fa-home
+            h4 Lorem ipsum
+            p
+              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.
+          .col-xs-6.col-md-3
+            i.fa.fa-umbrella
+            h4 Dolor sit amet
+            p
+              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.
+          .col-xs-6.col-md-3
+            i.fa.fa-gears
+            h4 Tempus eleifend
+            p
+              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.
+          .col-xs-6.col-md-3
+            i.fa.fa-language
+            h4 Pellentesque
+            p
+              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.
+    #footer
+      .container.text-center
+        .fnav
+          p
+            | Copyright © 2016 Catalyst. Designed by 
+            a(href='http://www.templatewire.com', rel='nofollow') TemplateWire
+    script(type='text/javascript', src='/javascripts/jquery.1.11.1.js')
+    script(type='text/javascript', src='/javascripts/bootstrap.js')
+    script(type='text/javascript', src='/javascripts/SmoothScroll.js')
+    script(type='text/javascript', src='/javascripts/jqBootstrapValidation.js')
+    script(type='text/javascript', src='/javascripts/contact_me.js')
+    script(type='text/javascript', src='/javascripts/main.js')
+
+
