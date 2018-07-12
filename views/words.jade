@@ -1,0 +1,23 @@
+extends layout
+
+block content
+    // Header
+    header#header
+      .intro
+        .overlay
+          .container
+            .row
+                .intro-text
+    #pricing.text-center
+            .container
+                if words
+                    each word, i in words
+                        .col-md-3.col-xs-6.word-block
+                            .pricing-table
+                                .plan-name
+                                    h3 #{word.word_type}
+                                .plan-price
+                                    h2 #{word.word_japanese}
+                                hr
+                                .plan-price
+                                    h2 #{word.word_chinese}

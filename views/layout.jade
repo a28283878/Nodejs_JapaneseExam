@@ -1,7 +1,73 @@
 doctype html
-html
+html(lang='en')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
-  body
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    title 勉強しましょう
+    meta(name='description', content='')
+    meta(name='author', content='')
+    //
+      Favicons
+      ==================================================
+    link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
+    // Bootstrap
+    link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', type='text/css', href='/fonts/font-awesome/css/font-awesome.css')
+    //
+      Stylesheet
+      ==================================================
+    link(rel='stylesheet', type='text/css', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900', rel='stylesheet')
+    
+    script(type='text/javascript', src='/javascripts/jquery.1.11.1.js')
+    script(type='text/javascript', src='/javascripts/bootstrap.js')
+    script(type='text/javascript', src='/javascripts/SmoothScroll.js')
+    script(type='text/javascript', src='/javascripts/jqBootstrapValidation.js')
+    script(type='text/javascript', src='/javascripts/main.js')
+  body#page-top(data-spy='scroll', data-target='.navbar-fixed-top')
+    //
+      Navigation
+      ==========================================
+    nav#menu.navbar.navbar-default.navbar-fixed-top
+      .container
+        // Brand and toggle get grouped for better mobile display
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand.page-scroll(href='/')
+            i.fa.fa-bookmark-o
+            |  Japanese Word Exam
+        // Collect the nav links, forms, and other content for toggling
+        #bs-example-navbar-collapse-1.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            //- li
+            //-   a.page-scroll(href='#about') About
+            //- li
+            //-   a.page-scroll(href='#services') Services
+            //- li
+            //-   a.page-scroll(href='#pricing') Pricing
+            if !isAuth
+              li
+                a.page-scroll(href='/user/signin') Signin
+              li
+                a.page-scroll(href='/user/login') Login
+            else
+              li
+                a.page-scroll(href='/words/all') All Word
+              li
+                a.page-scroll(href='/words/insert') Insert Word
+              li
+                a.page-scroll(href='/user/logout') Logout
+        // /.navbar-collapse
+      // /.container-fluid
     block content
+
+    #footer
+        .container.text-center
+          .fnav
+            p
+              | Copyright © 2016 Catalyst. Designed by 
+              a(href='http://www.templatewire.com', rel='nofollow') TemplateWire

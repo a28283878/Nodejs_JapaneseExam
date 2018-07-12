@@ -14,5 +14,7 @@ var WordsSQL = {
     WHERE words.id = ? AND  user_id = ? AND 'delete' = 0`,
 
     deleteWordsById:'UPDATE words SET `delete` = 1 FROM words WHERE id = ? AND user_id = ?',
+
+    getAllWordType:'SELECT id, name FROM word_types;',
   };
 module.exports = WordsSQL;

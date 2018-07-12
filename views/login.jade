@@ -1,0 +1,36 @@
+extends layout
+
+block content
+    // Header
+    header#header
+      .intro
+        .overlay
+          .container
+            .row
+                .intro-text
+    .text-center
+            .container
+                .col-md-10.col-md-offset-1.section-title
+                    h2.page-header Login
+                    p Please login below
+
+                    if redirect
+                        form(method='post', action='/user/login?redirect='+redirect)
+                            .form-group 
+                                label Username
+                                input.form-control(name='username', type='text', placeholder='Enter username')
+                            .form-group   
+                                label Password
+                                input.form-control(name='password', type='password', placeholder='Enter password')
+                            .form-group   
+                                input.btn.btn-primary(type='submit', name='submit', value='Login')
+                    else
+                        form(method='post', action='/user/login')
+                            .form-group 
+                                label Username
+                                input.form-control(name='username', type='text', placeholder='Enter username')
+                            .form-group   
+                                label Password
+                                input.form-control(name='password', type='password', placeholder='Enter password')
+                            .form-group   
+                                input.btn.btn-primary(type='submit', name='submit', value='Login')
