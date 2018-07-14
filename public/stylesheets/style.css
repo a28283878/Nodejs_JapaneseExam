@@ -140,17 +140,6 @@ hr {
 	background-size: cover;
 	-o-background-size: cover;
 }
-.japan-banner {
-	display: table;
-	width: 100%;
-	padding: 0;
-	background: url(../images/japan-banner.jpg) no-repeat center center;
-	background-color: #e5e5e5;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	background-size: cover;
-	-o-background-size: cover;
-}
 .intro .overlay {
 	background: rgba(255,255,255,0.2);
 }
@@ -172,6 +161,39 @@ header .intro-text {
 	padding-top: 300px;
 	padding-bottom: 200px;
 	text-align: center;
+}
+
+.japan-banner .overlay {
+	background: rgba(255,255,255,0.2);
+}
+.japan-banner h1 {
+	color: white;
+	font-size: 74px;
+	font-weight: 600;
+	margin-top: 0;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+.japan-banner p {
+	color: #444;
+	font-size: 28px;
+	margin-top: 10px;
+	margin-bottom: 40px;
+}
+header .japan-banner-text {
+	padding-top: 300px;
+	padding-bottom: 200px;
+}
+.japan-banner {
+	display: table;
+	width: 100%;
+	padding: 0;
+	background: url(../images/japan-banner.jpg) no-repeat center center;
+	background-color: #e5e5e5;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
 }
 /* About Section */
 #about {
