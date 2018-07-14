@@ -475,3 +475,18 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 .toast-font-size{
 	font-size: 18px !important;
 }
+
+.status-icon{
+	position: absolute;
+	top: 15px;
+	left: 15px;
+	font-size: 25px;
+	transition: 0.8s;
+	color:#555;
+}
+
+.status-icon:hover {
+	color:#222;
+	-webkit-transform: rotate(180deg);
+			transform: rotate(180deg);
+  }

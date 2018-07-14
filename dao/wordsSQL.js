@@ -6,7 +6,7 @@ var WordsSQL = {
     queryAll:`SELECT words.id, word_types.name as word_type, word_japanese, word_chinese, user_id 
     FROM words 
     LEFT JOIN word_types on(words.word_type = word_types.id)
-    WHERE user_id=1 AND 'delete' = 0`,  
+    WHERE user_id=? AND 'delete' = 0`,  
 
     getWordsByIdandUserId:`SELECT words.id, word_types.name as word_type, word_japanese, word_chinese, user_id 
     FROM words 

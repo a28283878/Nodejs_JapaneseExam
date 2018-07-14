@@ -8,7 +8,7 @@ router.get("/login", function (req, res, next) {
     if(req.session.user != undefined && req.session.isAuth) return res.redirect("/");
     var redirect = undefined;
     if(req.query.redirect) redirect = req.query.redirect;
-    res.render('login', {title: "Login", redirect: redirect});
+    res.render('login', {title: "Login", redirect: encodeURIComponent(redirect)});
 });
 
 router.post('/login', function(req, res) {
@@ -26,7 +26,6 @@ router.post('/login', function(req, res) {
             //設定session
             req.session.username = res.locals.username; 
             req.session.user = results[0]
-            console.log(req.redirect)
             if(req.query.redirect){
                 res.redirect(decodeURIComponent(req.query.redirect));
             }

@@ -58,12 +58,11 @@ _checkAuth = (req, res) =>{
   var originalUrl = req.originalUrl;
   if (req.session.user == undefined || req.session.user.password == undefined){ 
     if(originalUrl == undefined) {
-      res.redirect(302,'/user/login');
+      res.status(302).redirect('/user/login');
       res.finished = true;
     }
     else {
-      res.redirect(302, util.format('/user/login?redirect=%s', encodeURIComponent(originalUrl)));
-      console.log(res);
+      res.status(302).redirect(util.format('/user/login?redirect=%s', encodeURIComponent(originalUrl)));
       res.finished = true;
     }
   }
