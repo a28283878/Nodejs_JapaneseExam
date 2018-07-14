@@ -12,12 +12,14 @@ block content
             .container
                 if words
                     each word, i in words
-                        .col-md-3.col-xs-6.word-block
+                        .col-md-3.col-xs-6.word-block.pointer
                             .pricing-table
                                 .plan-name
                                     h3 #{word.word_type}
                                 .plan-price
                                     h2 #{word.word_japanese}
-                                hr
+                                        i.fas.fa-headphones.jp-pronounce(data-jp=word.word_japanese)
+                                hr(style="width:initial; margin:0px")
                                 .plan-price
                                     h2 #{word.word_chinese}
+    script(type='text/javascript', src='/javascripts/pronounce.js')

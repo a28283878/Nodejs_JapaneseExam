@@ -7,7 +7,7 @@ const { check, validationResult } = require('express-validator/check');
 
 // need to login
 router.get('/insert', (req, res) =>{
-  checkAuth(req, res);
+  _checkAuth(req, res);
   if (res.finished) return res;
 
   var errors = req.session.errors,
@@ -37,7 +37,7 @@ router.get('/word_types', (req, res) =>{
 });
 
 router.get('/all', function(req, res, next) {
-  checkAuth(req, res);
+  _checkAuth(req, res);
   if (res.finished) return res;
 
   db.query(wordsSQL.queryAll, [req.session.user.id], function(err, rows){
@@ -50,14 +50,14 @@ router.get('/all', function(req, res, next) {
         _logger.log(err);
         return res.sendStatus(500);
       }
-      console.log(rows);
-      return res.status(200).render("words", {words:rows});
+      
+      return res.status(200).render("words", {user: req.session.user, isAuth: req.session.isAuth, words:rows});
     }
   }
 });
 
 router.get('/:id', function(req, res, next) {
-  checkAuth(req, res);
+  _checkAuth(req, res);
   if (res.finished) return res;
 
   db.query(wordsSQL.getWordsByIdandUserId, [req.params.id, 1], function(err, rows){
@@ -121,21 +121,6 @@ router.delete('/:id', function(req, res, next) {
     res.sendStatus(200);
   });
 });
-
-var checkAuth = (req, res) =>{
-  var originalUrl = req.originalUrl;
-  if (req.session.user == undefined || req.session.user.password == undefined){ 
-    if(originalUrl == undefined) {
-      res.redirect('/user/login');
-      res.finished = true;
-    }
-    else {
-      res.redirect(util.format('/user/login?redirect=%s',originalUrl));
-      res.finished = true;
-    }
-  }
-  req.session.isAuth = true;
-}
 
 
 module.exports = router;

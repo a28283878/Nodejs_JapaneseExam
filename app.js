@@ -1,4 +1,5 @@
 var createError = require('http-errors');
+var util = require('util');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
@@ -8,6 +9,7 @@ var expressValidator = require('express-validator');
 var indexRouter = require('./routes/index');
 var wordsRouter = require('./routes/words');
 var userRouter = require('./routes/user');
+var examRouter = require('./routes/exam');
 _logger = require('./log/log');
 
 _logger.set_logger(null);
@@ -31,6 +33,7 @@ app.use(expressValidator());
 app.use('/', indexRouter);
 app.use('/words', wordsRouter);
 app.use('/user', userRouter);
+app.use('/exam', examRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -49,3 +52,20 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+
+_checkAuth = (req, res) =>{
+  var originalUrl = req.originalUrl;
+  if (req.session.user == undefined || req.session.user.password == undefined){ 
+    if(originalUrl == undefined) {
+      res.redirect(302,'/user/login');
+      res.finished = true;
+    }
+    else {
+      res.redirect(302, util.format('/user/login?redirect=%s', encodeURIComponent(originalUrl)));
+      console.log(res);
+      res.finished = true;
+    }
+  }
+  req.session.isAuth = true;
+}

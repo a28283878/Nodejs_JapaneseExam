@@ -10,37 +10,37 @@ block content
               .intro-text
                 h1 Japanese Word Exam
                 if isAuth
-                  p こんにちわ！ #{data.name} 來練習日文吧!
+                  p こんにちわ！ #{user.name} 來練習日文吧!
                 else
                   p こんにちわ！來練習日文吧!
-                a.btn.btn-custom.btn-lg.page-scroll(href='#about') Get Started
+                  a.btn.btn-custom.btn-lg.page-scroll(href='/user/login') Log In
     // Services Section
-    #services.text-center
-      .container
-        .col-md-10.col-md-offset-1.section-title
-          h2 Exam Type
-          hr
-          p 可以選擇你想要的考試方式
-        .row
-          .col-xs-6.col-md-3
-            i.fa.fa-home
-            h4 Lorem ipsum
-            p
-              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.
-          .col-xs-6.col-md-3
-            i.fa.fa-umbrella
-            h4 Dolor sit amet
-            p
-              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.
-          .col-xs-6.col-md-3
-            i.fa.fa-gears
-            h4 Tempus eleifend
-            p
-              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.
-          .col-xs-6.col-md-3
-            i.fa.fa-language
-            h4 Pellentesque
-            p
-              | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.
+    //- #services.text-center
+    //-   .container
+    //-     .col-md-10.col-md-offset-1.section-title
+    //-       h2 Exam Type
+    //-       hr
+    //-       p 可以選擇你想要的考試方式
+    //-     .row
+    //-       .col-xs-6.col-md-3
+    //-         i.fa.fa-home
+    //-         h4 Lorem ipsum
+    //-         p
+    //-           | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.
+    //-       .col-xs-6.col-md-3
+    //-         i.fa.fa-umbrella
+    //-         h4 Dolor sit amet
+    //-         p
+    //-           | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque.
+    //-       .col-xs-6.col-md-3
+    //-         i.fa.fa-gears
+    //-         h4 Tempus eleifend
+    //-         p
+    //-           | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque etiam.
+    //-       .col-xs-6.col-md-3
+    //-         i.fa.fa-language
+    //-         h4 Pellentesque
+    //-         p
+    //-           | Lorem ipsum dolor sit amet placerat facilisis felis mi in tempus eleifend pellentesque natoque.
 
 

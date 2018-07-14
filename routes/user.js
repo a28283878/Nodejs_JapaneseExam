@@ -5,6 +5,7 @@ var crypto = require('crypto');
 const { check, validationResult } = require('express-validator/check');
 
 router.get("/login", function (req, res, next) {
+    if(req.session.user != undefined && req.session.isAuth) return res.redirect("/");
     var redirect = undefined;
     if(req.query.redirect) redirect = req.query.redirect;
     res.render('login', {title: "Login", redirect: redirect});
@@ -15,11 +16,10 @@ router.post('/login', function(req, res) {
         userPwd = req.body.password
     var md5 = crypto.createHmac('md5',"ilovejapanese");
     var password = md5.update(username+userPwd).digest('hex');
-    console.log(req.params)
     userSQL.getUserNumByNameAndPassword(username, password, function (err, results) {
         console.log(results);                           
         if(results.length == 0) {
-            res.render('login',{title: "Login", err: "使用者或密碼輸入錯誤"});
+            res.render('login',{title: "Login", errors: [{"msg":"使用者或密碼輸入錯誤"}]});
         }
         else {
             res.locals.username = username;
@@ -28,7 +28,7 @@ router.post('/login', function(req, res) {
             req.session.user = results[0]
             console.log(req.redirect)
             if(req.query.redirect){
-                res.redirect(req.query.redirect);
+                res.redirect(decodeURIComponent(req.query.redirect));
             }
             else{
                 res.redirect('/');
@@ -40,6 +40,7 @@ router.post('/login', function(req, res) {
 });
 
 router.get("/signin", function(req, res){
+    if(req.session.user && req.session.isAuth) return res.redirect("/");
     res.render("signin");
 })
 

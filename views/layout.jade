@@ -12,7 +12,8 @@ html(lang='en')
     link(rel='shortcut icon', href='/images/favicon.ico', type='image/x-icon')
     // Bootstrap
     link(rel='stylesheet', type='text/css', href='/stylesheets/bootstrap.css')
-    link(rel='stylesheet', type='text/css', href='/fonts/font-awesome/css/font-awesome.css')
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    link(rel='stylesheet', type='text/css', href='/stylesheets/hover-min.css')
     //
       Stylesheet
       ==================================================
@@ -55,6 +56,8 @@ html(lang='en')
               li
                 a.page-scroll(href='/user/login') Login
             else
+              li
+                a.page-scroll(href='/exam/') Exam
               li
                 a.page-scroll(href='/words/all') All Word
               li

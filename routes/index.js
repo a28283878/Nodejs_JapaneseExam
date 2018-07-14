@@ -9,4 +9,4 @@ router.get('/', function(req, res, next) {
   res.render('index', {user: req.session.user, isAuth: req.session.isAuth});
 });
 
-module.exports = router;
+module.exports = router; 
