@@ -1,0 +1,39 @@
+extends layout
+
+block content
+    // Header
+    header#header
+      .japan-banner
+        .overlay
+          .container
+            .row
+                .intro-text
+    .text-center
+        .container
+            .col-md-10.col-md-offset-1.section-title
+                h2.page-header Sign In
+                p Please register using the form below
+                //Show error message
+                if errors
+                    each error, i in errors
+                        div.alert.alert-danger #{error.msg}
+                //表單內容
+                form(method='post', action='/user/signin')
+                    //multipart/form-data: 表單中要upload file時使用
+                    .form-group
+                    label Nick Name
+                    input.form-control(id='name', name='name', type='text', placeholder='Enter name')
+                    //- .form-group
+                    //- label Email   
+                    //- input.form-control(name='email', type='email', placeholder='Enter email')
+                    .form-group
+                    label Username
+                    input.form-control(name='username', type='text', placeholder='Enter username')
+                    .form-group   
+                    label Password
+                    input.form-control(name='password', type='password', placeholder='Enter password')
+                    .form-group   
+                    label Confirm Password
+                    input.form-control(name='password2', type='password', placeholder='Confirm password')
+                    .form-group
+                    input.btn.btn-primary(type='submit', name='submit', value='Register')

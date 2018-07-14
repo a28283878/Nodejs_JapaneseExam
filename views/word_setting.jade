@@ -1,0 +1,56 @@
+extends layout
+
+block content
+    // Header
+    header#header
+      .intro
+        .overlay
+          .container
+            .row
+                .intro-text
+    if word
+        script.
+            $.ajax({url: "/words/word_types", success: function(result){
+                var select = $("[name = 'word_type']");
+                var word_type_name = $("[name = 'id']").data('word_type_name');
+                var num = 0;
+                result.forEach((val, i) => {
+                    var option = document.createElement("option");
+                    option.setAttribute("value", val.id);
+                    option.text = val.name;
+                    if(word_type_name == val.name) num = val.id;
+                    select.append($.parseHTML(option.outerHTML));
+                });
+                select.val(num);
+            }});
+        .text-center
+                .container
+                    .col-xs-10.col-md-4.col-md-offset-4.section-title
+                        h2.page-header Update New Word
+                        //Show error message
+                        if errors
+                            each error, i in errors
+                                div.alert.alert-danger #{error.msg}
+                        if successes
+                            each success, i in successes
+                                div.alert.alert-success #{success.msg}
+                        form(method='post')
+                            .form-group
+                                label 詞性
+                                select.form-control(name='word_type')
+                            .form-group   
+                                label 日文
+                                input.form-control(name='word_japanese', type='text', placeholder='Enter Japanese', value=word.word_japanese)
+                            .form-group   
+                                label 中文
+                                input.form-control(name='word_chinese', type='text', placeholder='Enter Chinese', value=word.word_chinese)
+                            .form-group
+                                input(name='id', type='hidden', value=word.id, data-word_type_name=word.word_type)
+                            .form-group   
+                                input.btn.btn-primary(type='submit', name='submit', value='update')
+
+        script.
+            var url_string = window.location.href; //
+            var url = new URL(url_string);
+            var redirect = url.searchParams.get("redirect");
+            $("form").("action", '/words/setting?redirect=' + redirect);
