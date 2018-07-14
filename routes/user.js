@@ -26,7 +26,9 @@ router.post('/login', function(req, res) {
             //設定session
             req.session.username = res.locals.username; 
             req.session.user = results[0]
-            if(req.query.redirect){
+            if(!(req.query.redirect === undefined)){
+                
+                console.log(req.query.redirect);
                 res.redirect(decodeURIComponent(req.query.redirect));
             }
             else{
