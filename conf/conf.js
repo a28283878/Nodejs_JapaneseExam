@@ -2,8 +2,15 @@ module.exports = {
     mysql: {
         host: 'db4free.net', 
         user: 'richard_lin',
-        password: '!QAZ@WSX',
+        password: '!QAZ2wsx',
         database:'japanese_test',
         port: 3306
     }
+    // mysql: {
+    //     host: 'db4free.net', 
+    //     user: 'richard_lin',
+    //     password: '!QAZ2wsx',
+    //     database:'japanese_test',
+    //     port: 3306
+    // }
 };
