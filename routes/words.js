@@ -80,18 +80,18 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/insert',[check('word_type').isNumeric().withMessage("word type need to be numeric").not().isEmpty().withMessage("word type could not be empty"),
-  check('japanese').isString().withMessage("japanese need to be string").not().isEmpty().withMessage("japanese could not be empty"),
-  check('chinese').isString().withMessage("chinese need to be string").not().isEmpty().withMessage("chinese could not be empty"),
-  check('id').isNumeric().withMessage("id need to be numeric").not().isEmpty().withMessage("id could not be empty")], 
+  check('word_japanese').isString().withMessage("japanese need to be string").not().isEmpty().withMessage("japanese could not be empty"),
+  check('word_chinese').isString().withMessage("chinese need to be string").not().isEmpty().withMessage("chinese could not be empty")], 
   function(req, res){
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
     req.session.errors = errors.array();
     return res.status(422).redirect('/words/insert');
   }
-  
+  if(!req.session.user) return res.status(403).redirect('/words/insert');
   var body = req.body;
-  db.query(wordsSQL.insert, [body.word_type, body.japanese, body.chinese, body.id], function(err, rows) {
+  
+  db.query(wordsSQL.insert, [body.word_type, body.word_japanese, body.word_chinese, req.session.user.id], function(err, rows) {
     if(err){
       _logger.log(err);
       res.sendStatus(500);

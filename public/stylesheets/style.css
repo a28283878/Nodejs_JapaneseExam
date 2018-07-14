@@ -60,11 +60,11 @@ hr {
 }
 /* Navigation */
 #menu {
-	padding: 20px;
+	padding: 10px 20px 15px 20px;
 	transition: all 0.8s;
 }
 #menu.navbar-default {
-	background-color: rgba(248, 248, 248, 0);
+	background-color: rgba(248, 248, 248, 0.4);
 	border-color: rgba(231, 231, 231, 0);
 }
 #menu a.navbar-brand {
@@ -90,7 +90,7 @@ hr {
 .on {
 	background-color: #f6f6f6 !important;
 	border-bottom: 1px solid #ddd !important;
-	padding: 10px 0 !important;
+	padding: 10px 0  5px 0 !important;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
 	color: #0ba2db !important;
@@ -120,9 +120,9 @@ hr {
 	padding: 14px 20px;
 	margin: 0;
 	font-size: 16px;
-	border-radius: 2px;
+	border-radius: 10px;
 	margin-top: 20px;
-	transition: all 0.3s;
+	transition: all 0.5s;
 }
 .btn-custom:hover, .btn-custom:focus, .btn-custom.focus, .btn-custom:active, .btn-custom.active {
 	color: #fff;
@@ -134,6 +134,17 @@ hr {
 	width: 100%;
 	padding: 0;
 	background: url(../images/banner.jpg) no-repeat center center;
+	background-color: #e5e5e5;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+	-o-background-size: cover;
+}
+.japan-banner {
+	display: table;
+	width: 100%;
+	padding: 0;
+	background: url(../images/japan-banner.jpg) no-repeat center center;
 	background-color: #e5e5e5;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;

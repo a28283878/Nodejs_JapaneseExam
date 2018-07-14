@@ -14,9 +14,22 @@ router.get('/', function(req, res, next) {
 router.get('/reading', function(req, res, next) {
     _checkAuth(req, res);
     if (res.finished) return res;
-  
+    if(!req.query.num){
+        return res.status(200).render("reading", {user: req.session.user, isAuth: req.session.isAuth});
+    }
     db.query(wordsSQL.queryAll, [req.session.user.id], function(err, rows){
-      dbCallback(err, rows);
+      if(req.query.num){
+        if(req.query.num > rows.length) dbCallback(err, rows);
+        else{
+            rows.forEach((element, index)=>{
+                var randNum = Math.floor(Math.random()*rows.length);
+                var temp_row = rows[index];
+                rows[index] = rows[randNum];
+                rows[randNum] = temp_row;
+            });
+            dbCallback(err, rows.slice(0, req.query.num));
+        }
+      }
     });
   
     function dbCallback(err, rows){
@@ -33,9 +46,20 @@ router.get('/reading', function(req, res, next) {
 router.get('/listening', function(req, res, next) {
     _checkAuth(req, res);
     if (res.finished) return res;
-  
+    if(!req.query.num){
+        return res.status(200).render("listening", {user: req.session.user, isAuth: req.session.isAuth});
+    }
     db.query(wordsSQL.queryAll, [req.session.user.id], function(err, rows){
-      dbCallback(err, rows);
+        if(req.query.num > rows.length) dbCallback(err, rows);
+        else{
+            rows.forEach((element, index)=>{
+                var randNum = Math.floor(Math.random()*rows.length);
+                var temp_row = rows[index];
+                rows[index] = rows[randNum];
+                rows[randNum] = temp_row;
+            });
+            dbCallback(err, rows.slice(0, req.query.num));
+        }
     });
   
     function dbCallback(err, rows){

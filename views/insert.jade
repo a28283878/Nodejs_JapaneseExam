@@ -37,12 +37,12 @@ block content
                             //-         option(value=t.id) #{t.name}
                         .form-group   
                             label 日文
-                            input.form-control(name='japanese', type='text', placeholder='Enter Japanese')
+                            input.form-control(name='word_japanese', type='text', placeholder='Enter Japanese')
                         .form-group   
                             label 中文
-                            input.form-control(name='chinese', type='text', placeholder='Enter Chinese')
+                            input.form-control(name='word_chinese', type='text', placeholder='Enter Chinese')
                         .form-group
-                            if data
-                                input(name='id', type='hidden', value=data.id)
+                            if user
+                                input(name='id', type='hidden', value=user.id)
                         .form-group   
                             input.btn.btn-primary(type='submit', name='submit', value='insert')

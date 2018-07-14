@@ -11,6 +11,7 @@ block content
                 h1 Japanese Word Exam
                 if isAuth
                   p こんにちわ！ #{user.name} 來練習日文吧!
+                  a.btn.btn-custom.btn-lg.page-scroll(href='/exam/') Start an Exam
                 else
                   p こんにちわ！來練習日文吧!
                   a.btn.btn-custom.btn-lg.page-scroll(href='/user/login') Log In
