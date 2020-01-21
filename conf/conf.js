@@ -6,11 +6,4 @@ module.exports = {
         database:'heroku_f4e8c6a63eb4830',
         port: 3306
     }
-    // mysql: {
-    //     host: 'db4free.net', 
-    //     user: 'richard_lin',
-    //     password: '!QAZ2wsx',
-    //     database:'japanese_exam',
-    //     port: 3306
-    // }
 };
