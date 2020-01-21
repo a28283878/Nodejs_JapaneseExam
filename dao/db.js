@@ -1,10 +1,11 @@
 var sqlConnect = require('../conf/conf');
 var mysql = require('mysql');
 
-var connection = mysql.createConnection(sqlConnect.mysql);
-connection.connect(function(err) {
-    if (err) throw err
-    console.log('You are now connected...')
+var connection = mysql.createPool({
+    host: sqlConnect.host,
+    user: sqlConnect.user,
+    password: sqlConnect.password,
+    database: sqlConnect.database
 });
 
 module.exports = connection;
