@@ -20,7 +20,8 @@ router.post('/login', function(req, res) {
     var md5 = crypto.createHmac('md5',"ilovejapanese");
     var password = md5.update(username+userPwd).digest('hex');
     userSQL.getUserNumByNameAndPassword(username, password, function (err, results) {
-        console.log(results);                           
+        console.log(results);   
+        console.log(err);                         
         if(results.length == 0) {
             res.render('login',{title: "Login", errors: [{"msg":"使用者或密碼輸入錯誤"}]});
         }
